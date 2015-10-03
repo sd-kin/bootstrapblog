@@ -1,0 +1,18 @@
+<h1>Show article</h1>
+
+<%= @article.title %><br>
+<%= @article.text %><br>
+<hr>
+<%@article.comments.each do |comment|%>
+<%= comment.author%> says:
+<%= comment.body%><br>
+<%end%>
+
+<%if user_signed_in?%>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+ <%= current_user.username %><br/>
+ <%= f.text_area :body%>
+
+ <p><%=f.submit%></p>
+<%end%>
+<%end%>

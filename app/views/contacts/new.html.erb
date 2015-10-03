@@ -1,0 +1,9 @@
+<h1>New contact</h1>
+<p>
+<%= @cont.errors.join " "%>
+</p>
+<%= form_for :contact, url: '/contacts' do |f| %>
+ <%= f.text_field :email %><br/>
+ <%= f.text_area :addres%>
+ <p><%=f.submit%></p>
+<%end%>
